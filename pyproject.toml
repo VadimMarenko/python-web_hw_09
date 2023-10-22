@@ -15,8 +15,6 @@ beautifulsoup4 = "^4.12.2"
 tqdm = "^4.66.1"
 scrapy = "^2.11.0"
 scrapyscript = "^1.1.5"
-redis = "^5.0.1"
-redis-lru = "^0.1.2"
 
 
 [build-system]
