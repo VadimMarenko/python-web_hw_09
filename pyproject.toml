@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "python-web-hw-09"
+version = "0.1.0"
+description = ""
+authors = ["Vadim Marenko <vadim.marenko@gmail.com>"]
+license = "MIT License"
+readme = "README.md"
+packages = [{include = "python_web_hw_09"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+mongoengine = "^0.27.0"
+requests = "^2.31.0"
+beautifulsoup4 = "^4.12.2"
+tqdm = "^4.66.1"
+scrapy = "^2.11.0"
+scrapyscript = "^1.1.5"
+redis = "^5.0.1"
+redis-lru = "^0.1.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
