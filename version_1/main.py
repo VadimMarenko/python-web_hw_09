@@ -1,10 +1,13 @@
 import json
 from time import sleep
+
 import requests
 from bs4 import BeautifulSoup
 from tqdm import tqdm
+
 import seeds
-import search_quotes
+
+# import search_quotes
 
 
 def quotes_json():
