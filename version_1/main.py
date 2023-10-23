@@ -50,12 +50,12 @@ def quotes_json():
 
 
 def authors_json(urls):
-    base_url = "https://quotes.toscrape.com"
+    start_url = "https://quotes.toscrape.com/"
 
     all_authors = []
 
     for url in tqdm(urls, desc="Data Processing", ncols=100):
-        link = f"{base_url}{url}"
+        link = f"{start_url}{url}"
         response = requests.get(link)
         if response.status == HTTP_STATUS_OK:
             sleep(3)
