@@ -8,17 +8,19 @@ from tqdm import tqdm
 import seeds
 
 # import search_quotes
+start_url = "https://quotes.toscrape.com/"
 HTTP_STATUS_OK = 200
+NUM_COLS = 100
 
 
 def quotes_json():
     all_quotes = []
     all_urls = set()
 
-    for p in tqdm(range(1, 10 + 1), desc="Pages", ncols=100):
-        url = f"https://quotes.toscrape.com/page/{p}"
+    for p in tqdm(range(1, 10 + 1), desc="Pages", ncols=NUM_COLS):
+        url = f"{start_url}page/{p}"
         response = requests.get(url)
-        if response.status == HTTP_STATUS_OK:
+        if response.status_code == HTTP_STATUS_OK:
             sleep(3)
             soup = BeautifulSoup(response.text, "lxml")
 
@@ -50,14 +52,12 @@ def quotes_json():
 
 
 def authors_json(urls):
-    start_url = "https://quotes.toscrape.com/"
-
     all_authors = []
 
-    for url in tqdm(urls, desc="Data Processing", ncols=100):
+    for url in tqdm(urls, desc="Data Processing", ncols=NUM_COLS):
         link = f"{start_url}{url}"
         response = requests.get(link)
-        if response.status == HTTP_STATUS_OK:
+        if response.status_code == HTTP_STATUS_OK:
             sleep(3)
 
             soup = BeautifulSoup(response.text, "lxml")
