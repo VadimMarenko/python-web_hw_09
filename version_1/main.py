@@ -8,7 +8,7 @@ from tqdm import tqdm
 import seeds
 
 # import search_quotes
-start_url = "https://quotes.toscrape.com/"
+starts_url = "https://quotes.toscrape.com/"
 HTTP_STATUS_OK = 200
 NUM_COLS = 100
 
@@ -18,7 +18,7 @@ def quotes_json():
     all_urls = set()
 
     for p in tqdm(range(1, 10 + 1), desc="Pages", ncols=NUM_COLS):
-        url = f"{start_url}page/{p}"
+        url = f"{starts_url}page/{p}"
         response = requests.get(url)
         if response.status_code == HTTP_STATUS_OK:
             sleep(3)
@@ -55,7 +55,7 @@ def authors_json(urls):
     all_authors = []
 
     for url in tqdm(urls, desc="Data Processing", ncols=NUM_COLS):
-        link = f"{start_url}{url}"
+        link = f"{starts_url}{url}"
         response = requests.get(link)
         if response.status_code == HTTP_STATUS_OK:
             sleep(3)
